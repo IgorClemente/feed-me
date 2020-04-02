@@ -27,14 +27,19 @@
 /// THE SOFTWARE.
 
 import UIKit
+import GoogleMaps
 
-let googleApiKey = "ENTER_KEY_HERE"
+let googleApiKey = "AIzaSyA0sG9iENHOBiJo5Bp3Hd5XTTltxER4ocg"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+  
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    
+    GMSServices.provideAPIKey(googleApiKey)
+    
     return true
   }
 }

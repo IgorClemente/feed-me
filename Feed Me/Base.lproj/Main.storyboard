@@ -15,19 +15,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19m-MD-xom" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nab-zt-7f9">
+                                <rect key="frame" x="5" y="627" width="365" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ftk-oC-bCb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_me" translatesAutoresizingMaskIntoConstraints="NO" id="Zk1-KE-lC0">
-                                <rect key="frame" x="172.5" y="300.5" width="30" height="55"/>
+                                <rect key="frame" x="172.5" y="328" width="30" height="55"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="r7q-Zb-cJ5" firstAttribute="centerY" secondItem="Zk1-KE-lC0" secondAttribute="bottom" id="2Re-av-h44"/>
-                            <constraint firstItem="r7q-Zb-cJ5" firstAttribute="centerX" secondItem="Zk1-KE-lC0" secondAttribute="centerX" id="eEV-hM-eKB"/>
+                            <constraint firstItem="19m-MD-xom" firstAttribute="top" secondItem="r7q-Zb-cJ5" secondAttribute="top" id="CEO-GR-FMN"/>
+                            <constraint firstItem="Nab-zt-7f9" firstAttribute="leading" secondItem="r7q-Zb-cJ5" secondAttribute="leading" constant="5" id="F1S-hk-5De"/>
+                            <constraint firstItem="Zk1-KE-lC0" firstAttribute="centerX" secondItem="r7q-Zb-cJ5" secondAttribute="centerX" id="K58-O1-wtn"/>
+                            <constraint firstItem="19m-MD-xom" firstAttribute="leading" secondItem="r7q-Zb-cJ5" secondAttribute="leading" id="N0B-eF-bzX"/>
+                            <constraint firstItem="Zk1-KE-lC0" firstAttribute="centerY" secondItem="r7q-Zb-cJ5" secondAttribute="centerY" id="ZDG-mi-fHA"/>
+                            <constraint firstItem="r7q-Zb-cJ5" firstAttribute="trailing" secondItem="Nab-zt-7f9" secondAttribute="trailing" constant="5" id="kCj-Uh-i2A"/>
+                            <constraint firstItem="19m-MD-xom" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="qmf-jQ-YII"/>
+                            <constraint firstItem="r7q-Zb-cJ5" firstAttribute="trailing" secondItem="19m-MD-xom" secondAttribute="trailing" id="tXU-21-tk3"/>
+                            <constraint firstItem="r7q-Zb-cJ5" firstAttribute="bottom" secondItem="Nab-zt-7f9" secondAttribute="bottom" id="w5Y-a0-FXT"/>
+                            <constraint firstItem="r7q-Zb-cJ5" firstAttribute="bottom" secondItem="19m-MD-xom" secondAttribute="bottom" id="ywz-yC-bkt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r7q-Zb-cJ5"/>
                     </view>
                     <navigationItem key="navigationItem" id="6Hq-pz-3QM">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="refresh" id="mFS-UJ-Wpl">
+                            <connections>
+                                <action selector="tapRefreshMap:" destination="vXZ-lx-hvc" id="DZg-HC-9k9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="filter" id="Y8r-sI-zD8">
                             <connections>
                                 <segue destination="gRK-9k-5jK" kind="presentation" identifier="Types Segue" id="Glz-Sc-CwV"/>
@@ -35,13 +62,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addressLabel" destination="Nab-zt-7f9" id="5Yi-8p-QBX"/>
                         <outlet property="mapCenterPinImage" destination="Zk1-KE-lC0" id="Dfo-xZ-1yc"/>
-                        <outlet property="pinImageVerticalConstraint" destination="2Re-av-h44" id="KIp-HD-OAI"/>
+                        <outlet property="mapView" destination="19m-MD-xom" id="X5R-HA-Qf9"/>
+                        <outlet property="pinImageVerticalConstraint" destination="Zk1-KE-lC0" id="6qg-dV-Nc5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="951" y="797"/>
+            <point key="canvasLocation" x="949.60000000000002" y="796.55172413793105"/>
         </scene>
         <!--Choose Types-->
         <scene sceneID="gir-OY-7YJ">
